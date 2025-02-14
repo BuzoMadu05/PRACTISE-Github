@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chibuzo's Profile</title>
+  <link rel="stylesheet" href="profile 2.css" />
+  <script defer src="profile 2.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s ease;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .card {
+      width: 80%;
+      max-width: 600px;
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin: 20px;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+    .profile-picture {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #007bff;
+      transition: border-color 0.3s ease;
+    }
+    .profile-picture:hover {
+      border-color: #0056b3;
+    }
+    .social-media a {
+      display: inline-block;
+      padding: 10px;
+      margin: 5px;
+      background: #007bff;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .social-media a:hover {
+      background: #0056b3;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+      margin: 10px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .gallery-img {
+      width: 30%;
+      max-width: 150px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .gallery-img:hover {
+      transform: scale(1.05);
+    }
+    /* Dark Mode Styles */
+    .dark-mode {
+      background-color: #222;
+      color: white;
+    }
+    .dark-mode .card {
+      background: #333;
+      color: white;
+    }
+    .dark-mode .social-media a {
+      background: white;
+      color: #007bff;
+    }
+    .dark-mode .social-media a:hover {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- About Me Card -->
+    <div class="card">
+      <img id="profile-pic" src="my picture.jpg" alt="Chibuzo's Picture" class="profile-picture" />
+      <h2>About Me</h2>
+      <p>Software Developer and AI Engineer with expertise in product management.</p>
+    </div>
+
+    <!-- Achievements Card -->
+    <div class="card">
+      <h2>Achievements</h2>
+      <ul style="text-align: left; margin: 0 auto; max-width: 400px;">
+        <li>Awarded Best Developer 2023</li>
+        <li>Recognized for Innovation in AI</li>
+        <li>Featured in Top Tech Magazines</li>
+      </ul>
+    </div>
+
+    <!-- Portfolio Card -->
+    <div class="card">
+      <h2>Portfolio</h2>
+      <p>Check out my projects <a href="#">here</a>.</p>
+    </div>
+
+    <!-- Offerings Card -->
+    <div class="card">
+      <h2>Offerings</h2>
+      <ul style="text-align: left; margin: 0 auto; max-width: 400px;">
+        <li>Custom Web Development</li>
+        <li>Mobile App Solutions</li>
+        <li>AI Integration Services</li>
+      </ul>
+    </div>
+
+    <!-- Testimonials Card -->
+    <div class="card">
+      <h2>Testimonials</h2>
+      <p>"Chibuzo is a fantastic developer who delivered beyond expectations." - Client A</p>
+      <p>"The level of professionalism and expertise is unmatched." - Client B</p>
+    </div>
+
+    <!-- Contact Card -->
+    <div class="card">
+      <h2>Contact</h2>
+      <p>Address: Owerri, Nigeria</p>
+      <p>Email: chibuzo@example.com</p>
+    </div>
+
+    <!-- Social Media Card -->
+    <div class="card social-media">
+      <h2>Social Media</h2>
+      <a href="#">🔗 LinkedIn</a>
+      <a href="#">🐦 Twitter</a>
+      <a href="#">📘 Facebook</a>
+    </div>
+
+    <!-- Pictures Gallery Card -->
+    <div class="card">
+      <h2>Pictures</h2>
+      <div class="gallery">
+        <img src="gallery1.jpg" alt="Gallery image 1" class="gallery-img" />
+        <img src="gallery2.jpg" alt="Gallery image 2" class="gallery-img" />
+        <img src="gallery3.jpg" alt="Gallery image 3" class="gallery-img" />
+      </div>
+    </div>
+
+    <!-- Control Buttons -->
+    <button onclick="toggleTheme()">Toggle Theme</button>
+    <button onclick="changeProfilePicture()">Change Picture</button>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+    }
+    function changeProfilePicture() {
+      let profilePic = document.getElementById("profile-pic");
+      let images = ["profile.jpg", "profile2.jpg", "profile3.jpg"];
+      let currentImage = profilePic.src.split("/").pop();
+      let newImage = images[(images.indexOf(currentImage) + 1) % images.length];
+      profilePic.src = newImage;
+    }
+  </script>
+</body>
+</html>

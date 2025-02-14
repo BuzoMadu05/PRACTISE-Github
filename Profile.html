@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chibuzo's Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <script defer src="profile.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #007bff;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+        }
+        .profile {
+            max-width: 400px;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+        .profile:hover {
+            transform: scale(1.05);
+        }
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #007bff;
+            transition: 0.3s;
+        }
+        .profile-picture:hover {
+            border-color: #0056b3;
+        }
+        .info h2 {
+            color: #333;
+        }
+        .social-media {
+            margin-top: 15px;
+        }
+        .icon {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .icon:hover {
+            background: #0056b3;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .dark-mode {
+            background-color: #222;
+            color: white;
+        }
+        .dark-mode .profile {
+            background: #333;
+            color: white;
+        }
+        .dark-mode .icon {
+            background: white;
+            color: #007bff;
+        }
+        .dark-mode .icon:hover {
+            background: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Chibuzo's Profile</h1>
+    </header>
+    <section class="profile">
+        <img id="profile-pic" src="my picture.jpg" alt="Chibuzo's Picture" class="profile-picture">
+        <div class="info">
+            <h2>Experience</h2>
+            <p>Software Developer and AI Engineer with expertise in product management.</p>
+            <h2>Portfolio</h2>
+            <p>Check out my projects <a href="#">here</a>.</p>
+            <h2>Contact</h2>
+            <p>Address: Owerri, Nigeria</p>
+            <p>Email: chibuzo@example.com</p>
+        </div>
+        <div class="social-media">
+            <a href="#" class="icon">🔗 LinkedIn</a>
+            <a href="#" class="icon">🐦 Twitter</a>
+            <a href="#" class="icon">📘 Facebook</a>
+        </div>
+    </section>
+    <button onclick="toggleTheme()">Toggle Theme</button>
+    <button onclick="changeProfilePicture()">Change Picture</button>
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle("dark-mode");
+        }
+        function changeProfilePicture() {
+            let profilePic = document.getElementById("profile-pic");
+            let images = ["profile.jpg", "profile2.jpg", "profile3.jpg"];
+            let currentImage = profilePic.src.split("/").pop();
+            let newImage = images[(images.indexOf(currentImage) + 1) % images.length];
+            profilePic.src = newImage;
+        }
+    </script>
+</body>
+</html>
+
